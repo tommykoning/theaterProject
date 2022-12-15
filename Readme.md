@@ -1,3 +1,4 @@
 # theater project
 
-d
+## how to run
+
