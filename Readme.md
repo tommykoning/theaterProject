@@ -11,4 +11,4 @@ open terminal at the project root and run these commands to install react:
 > npm update
 
 then to run the application go back to the root of the project and run:
-> dotnet start
+> dotnet run
