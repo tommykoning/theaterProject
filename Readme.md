@@ -12,3 +12,5 @@ open terminal at the project root and run these commands to install react:
 
 then to run the application go back to the root of the project and run:
 > dotnet start
+
+package-lock.json uit het project houden
