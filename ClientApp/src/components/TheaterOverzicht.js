@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {NestedModal} from './components/TheaterModal';
+import NestedModal from './components/TheaterModal';
 
 export class TheaterOverzicht extends Component {
     render() { 
