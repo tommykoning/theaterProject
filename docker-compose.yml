@@ -5,11 +5,22 @@ services:
     build: ./client
     ports:
       - "5173:5173"
+    volumes:
+      - ./client/src:/app/src
+    environment:
+      - REACT_APP_NAME=Theater
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - server
+    env_file:
+      - 'env.react'
 
   server:
     build: ./server
     ports: 
-    - "15555:15555"
+      - "15555:15555"
+    depends_on:
+      - database
 
   database:
     container_name: sql-server-db
@@ -24,6 +35,4 @@ services:
 
 
 volumes:
-  theater_db:
-    external: true
-    name: 'theater_db'
+  react: {}
