@@ -1,16 +1,32 @@
 version: "3.3"
 services:
 
-  web:
-    build: /
+  client:
+    build: ./client
     ports:
-      - "5000:5000"
+      - "5173:5173"
+    volumes:
+      - ./client/src:/app/src
+    environment:
+      - REACT_APP_NAME=Theater
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - server
+    env_file:
+      - 'env.react'
+
+  server:
+    build: ./server
+    ports: 
+      - "15555:15555"
+    depends_on:
+      - database
 
   database:
     container_name: sql-server-db
     image: mcr.microsoft.com/azure-sql-edge
     volumes:
-      - /var/opt/sqlserver
+      - MSSQL_db:/var/opt/mssql
     ports:
       - "1433:1433"
     environment:
@@ -19,6 +35,7 @@ services:
 
 
 volumes:
-  theater_db:
+  react: {}
+  MSSQL_db:
+    name: MSSQL_db
     external: true
-    name: 'theater_db'
