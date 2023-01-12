@@ -1,17 +1,16 @@
-import {useState, useEffect} from 'react';
+import { modalUnstyledClasses } from '@mui/material';
+import React, {useState, useEffect} from 'react';
+import './TicketPagina.css';
+import Header from './Header';
+import Maincontent from './maincontent';
 
-const header = () => {
+const body = () => {
   return (
-    <header>
-      <nav className="topNav">
-        <ul>
-          <li><a href="#">dummy1</a></li>
-          <li><a href="#">dummy2</a></li>
-          <li><a href="#">dummy3</a></li>
-        </ul>
-      </nav>
-    </header>
+    <>
+    <Header/>
+    <Maincontent/>
+    </>
   );
 }
 
-export default header;
+export default body;
