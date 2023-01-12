@@ -26,7 +26,7 @@ services:
     container_name: sql-server-db
     image: mcr.microsoft.com/azure-sql-edge
     volumes:
-      - /var/opt/sqlserver
+      - MSSQL_db:/var/opt/mssql
     ports:
       - "1433:1433"
     environment:
@@ -36,3 +36,6 @@ services:
 
 volumes:
   react: {}
+  MSSQL_db:
+    name: MSSQL_db
+    external: true
